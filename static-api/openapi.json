@@ -3,27 +3,46 @@
   "info": {
     "title": "Investment Memo Writer API",
     "version": "1.0.0",
-    "description": "Combined API for generating investment memo sections: Company Overview, Path to Profitability, Growth, and Team Section."
+    "description": "Single-file OpenAPI spec for generating all four sections of an investment memo."
   },
   "servers": [
     {
-      "url": "https://miles-collab.github.io/GMOAT-r7/static-api"
+      "url": "https://miles-collab.github.io/GMOAT-r7"
     }
   ],
   "paths": {
-    "/write-company-overview.json": {
-      "get": {
+    "/company-overview": {
+      "post": {
         "operationId": "writeCompanyOverview",
-        "summary": "Generate a Company Overview",
+        "summary": "Generate a detailed Company Overview",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "extractedText": {
+                    "type": "string",
+                    "description": "Extracted data room text"
+                  }
+                },
+                "required": ["extractedText"]
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Company Overview generated successfully",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "companyOverview": { "type": "string" }
+                    "companyOverview": {
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -32,19 +51,38 @@
         }
       }
     },
-    "/write-path-to-profitability.json": {
-      "get": {
+    "/path-to-profitability": {
+      "post": {
         "operationId": "writePathToProfitability",
-        "summary": "Generate a Path to Profitability",
+        "summary": "Generate a detailed Path to Profitability",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "extractedText": {
+                    "type": "string",
+                    "description": "Extracted data room text"
+                  }
+                },
+                "required": ["extractedText"]
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Path to Profitability generated successfully",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "pathToProfitability": { "type": "string" }
+                    "pathToProfitability": {
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -53,19 +91,38 @@
         }
       }
     },
-    "/write-growth.json": {
-      "get": {
-        "operationId": "writeGrowth",
-        "summary": "Generate Growth",
+    "/growth": {
+      "post": {
+        "operationId": "writeGrowthPostProfitability",
+        "summary": "Generate a Growth Post-Profitability section",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "extractedText": {
+                    "type": "string",
+                    "description": "Extracted data room text"
+                  }
+                },
+                "required": ["extractedText"]
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Growth section generated successfully",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "growthPostProfitability": { "type": "string" }
+                    "growthPostProfitability": {
+                      "type": "string"
+                    }
                   }
                 }
               }
@@ -74,19 +131,38 @@
         }
       }
     },
-    "/write-team-section.json": {
-      "get": {
+    "/team-section": {
+      "post": {
         "operationId": "writeTeamSection",
-        "summary": "Generate a Team Section",
+        "summary": "Generate a detailed Team Section",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "extractedText": {
+                    "type": "string",
+                    "description": "Extracted team info and notes"
+                  }
+                },
+                "required": ["extractedText"]
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
-            "description": "Success",
+            "description": "Team section generated successfully",
             "content": {
               "application/json": {
                 "schema": {
                   "type": "object",
                   "properties": {
-                    "teamSection": { "type": "string" }
+                    "teamSection": {
+                      "type": "string"
+                    }
                   }
                 }
               }
