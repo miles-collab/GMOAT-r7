@@ -1,0 +1,99 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Investment Memo Writer API",
+    "version": "1.0.0",
+    "description": "Combined API for generating investment memo sections: Company Overview, Path to Profitability, Growth, and Team Section."
+  },
+  "servers": [
+    {
+      "url": "https://miles-collab.github.io/GMOAT-r7/static-api"
+    }
+  ],
+  "paths": {
+    "/write-company-overview.json": {
+      "get": {
+        "operationId": "writeCompanyOverview",
+        "summary": "Generate a Company Overview",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "companyOverview": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/write-path-to-profitability.json": {
+      "get": {
+        "operationId": "writePathToProfitability",
+        "summary": "Generate a Path to Profitability",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "pathToProfitability": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/write-growth.json": {
+      "get": {
+        "operationId": "writeGrowth",
+        "summary": "Generate Growth",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "growthPostProfitability": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/write-team-section.json": {
+      "get": {
+        "operationId": "writeTeamSection",
+        "summary": "Generate a Team Section",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "teamSection": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
