@@ -2,9 +2,15 @@
   "openapi": "3.1.0",
   "info": {
     "title": "Investment Memo Writer Actions",
-    "version": "1.0.1",
-    "description": "Self-contained tool-style GPT actions for writing memo sections using structured input."
+    "version": "1.0.2",
+    "description": "Self-contained tool-style GPT actions for writing venture-style investment memo sections using user-provided extracted data."
   },
+  "servers": [
+    {
+      "url": "https://miles-collab.github.io/GMOAT-r7",
+      "description": "GitHub Pages static host for OpenAPI spec (no backend required)"
+    }
+  ],
   "paths": {
     "/company-overview": {
       "post": {
@@ -12,7 +18,7 @@
         "summary": "Generate a detailed Company Overview",
         "x-openai-isTool": true,
         "x-openai-mockResponse": {
-          "companyOverview": "Mocked company overview response"
+          "companyOverview": "Mocked company overview response for demo purposes."
         },
         "requestBody": {
           "required": true,
@@ -56,7 +62,7 @@
         "summary": "Generate a Path to Profitability section",
         "x-openai-isTool": true,
         "x-openai-mockResponse": {
-          "pathToProfitability": "Mocked Path to Profitability response"
+          "pathToProfitability": "Mocked Path to Profitability response for demo purposes."
         },
         "requestBody": {
           "required": true,
@@ -100,7 +106,7 @@
         "summary": "Generate a Growth Post-Profitability section",
         "x-openai-isTool": true,
         "x-openai-mockResponse": {
-          "growthPostProfitability": "Mocked Growth section response"
+          "growthPostProfitability": "Mocked Growth section response for demo purposes."
         },
         "requestBody": {
           "required": true,
@@ -144,7 +150,7 @@
         "summary": "Generate a Team Section",
         "x-openai-isTool": true,
         "x-openai-mockResponse": {
-          "teamSection": "Mocked Team Section response"
+          "teamSection": "Mocked Team Section response for demo purposes."
         },
         "requestBody": {
           "required": true,
