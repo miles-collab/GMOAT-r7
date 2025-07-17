@@ -1,3 +1,39 @@
 {
-  "teamSection": "**Team Overview**\n• CEO: PhD from Cambridge, co-founded a cell therapy startup acquired by Ginkgo.\n• CTO: Biophysics PhD, 10 years in protein design at Twist and Amgen.\n• COO: Previously built manufacturing ops at Impossible Foods.\n\n**Strategy & Team Dynamic**\n• Strong bias toward technical depth and iterative experimentation.\n• Scientific leadership is exceptional, but commercial expertise is underdeveloped.\n\n**Team Readiness: Investment Lens**\n• Core science team is world-class, but lacks operational scale-up experience.\n• No dedicated GTM leadership yet — CEO currently leading partnerships.\n\n**Key Priorities & Next Steps**\n• Hire a seasoned VP of BD or CCO within 6–9 months.\n• Build repeatable hiring process across eng + ops.\n\n**Org Snapshot**\n• ~80% technical, 20% business. Still in R&D mode. Post-Seed team of 14."
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Team Section Writer",
+    "version": "1.0.0",
+    "description": "Generates a full-length Team section based on extracted bios, notes, and team profiles."
+  },
+  "servers": [
+    {
+      "url": "https://miles-collab.github.io/GMOAT-r7/static-api"
+    }
+  ],
+  "paths": {
+    "/write-team-section.json": {
+      "get": {
+        "operationId": "writeTeamSection",
+        "summary": "Generate a Team Section",
+        "description": "Outputs team bios, structure, friction points, and hiring roadmap with bold formatting.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "teamSection": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }

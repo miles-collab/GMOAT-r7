@@ -1,3 +1,39 @@
 {
-  "companyOverview": "The company engineers recombinant proteins through a cell-free manufacturing platform that’s 10x faster than traditional fermentation. Their core tech enables rapid iteration and cost-effective scaling, initially targeting alternative meat and clean-label inputs.\n\nFounded in 2020 by a Cambridge PhD and former Ginkgo execs, the team has developed 3 functional protein candidates and established a commercial pilot with a $10B CPG. Their wedge is precision control at low batch volumes, unlocking niche use cases too small for fermentation.\n\nOne CPG R&D team described it as 'the first real plug-and-play platform for bio-based ingredients' — reducing prototyping cycles from months to weeks. The company is pre-revenue but has 4 paid pilots and is nearing its first LOI close."
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Company Overview Writer",
+    "version": "1.0.0",
+    "description": "Generates a full-length Company Overview section based on extracted data room content."
+  },
+  "servers": [
+    {
+      "url": "https://miles-collab.github.io/GMOAT-r7/static-api"
+    }
+  ],
+  "paths": {
+    "/write-company-overview.json": {
+      "get": {
+        "operationId": "writeCompanyOverview",
+        "summary": "Generate a Company Overview",
+        "description": "Creates a venture-style Company Overview memo section using structured narrative and example tone.",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "companyOverview": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
 }
