@@ -1,21 +1,19 @@
 {
   "openapi": "3.1.0",
   "info": {
-    "title": "Investment Memo Writer API",
-    "version": "1.0.0",
-    "description": "Single-file OpenAPI spec for generating all four sections of an investment memo."
+    "title": "Investment Memo Writer Actions",
+    "version": "1.0.1",
+    "description": "Self-contained tool-style GPT actions for writing memo sections using structured input."
   },
-  "servers": [
-    {
-      "url": "https://miles-collab.github.io/GMOAT-r7"
-    }
-  ],
   "paths": {
     "/company-overview": {
       "post": {
         "operationId": "writeCompanyOverview",
         "summary": "Generate a detailed Company Overview",
-        "x-openai-isMock": true,
+        "x-openai-isTool": true,
+        "x-openai-mockResponse": {
+          "companyOverview": "Mocked company overview response"
+        },
         "requestBody": {
           "required": true,
           "content": {
@@ -25,7 +23,7 @@
                 "properties": {
                   "extractedText": {
                     "type": "string",
-                    "description": "Extracted data room text"
+                    "description": "Extracted company data"
                   }
                 },
                 "required": ["extractedText"]
@@ -35,7 +33,7 @@
         },
         "responses": {
           "200": {
-            "description": "Company Overview generated successfully",
+            "description": "Company Overview",
             "content": {
               "application/json": {
                 "schema": {
@@ -55,8 +53,11 @@
     "/path-to-profitability": {
       "post": {
         "operationId": "writePathToProfitability",
-        "summary": "Generate a detailed Path to Profitability",
-        "x-openai-isMock": true,
+        "summary": "Generate a Path to Profitability section",
+        "x-openai-isTool": true,
+        "x-openai-mockResponse": {
+          "pathToProfitability": "Mocked Path to Profitability response"
+        },
         "requestBody": {
           "required": true,
           "content": {
@@ -66,7 +67,7 @@
                 "properties": {
                   "extractedText": {
                     "type": "string",
-                    "description": "Extracted data room text"
+                    "description": "Extracted financial notes"
                   }
                 },
                 "required": ["extractedText"]
@@ -76,7 +77,7 @@
         },
         "responses": {
           "200": {
-            "description": "Path to Profitability generated successfully",
+            "description": "Path to Profitability",
             "content": {
               "application/json": {
                 "schema": {
@@ -97,7 +98,10 @@
       "post": {
         "operationId": "writeGrowthPostProfitability",
         "summary": "Generate a Growth Post-Profitability section",
-        "x-openai-isMock": true,
+        "x-openai-isTool": true,
+        "x-openai-mockResponse": {
+          "growthPostProfitability": "Mocked Growth section response"
+        },
         "requestBody": {
           "required": true,
           "content": {
@@ -107,7 +111,7 @@
                 "properties": {
                   "extractedText": {
                     "type": "string",
-                    "description": "Extracted data room text"
+                    "description": "Growth and TAM info"
                   }
                 },
                 "required": ["extractedText"]
@@ -117,7 +121,7 @@
         },
         "responses": {
           "200": {
-            "description": "Growth section generated successfully",
+            "description": "Growth section",
             "content": {
               "application/json": {
                 "schema": {
@@ -137,8 +141,11 @@
     "/team-section": {
       "post": {
         "operationId": "writeTeamSection",
-        "summary": "Generate a detailed Team Section",
-        "x-openai-isMock": true,
+        "summary": "Generate a Team Section",
+        "x-openai-isTool": true,
+        "x-openai-mockResponse": {
+          "teamSection": "Mocked Team Section response"
+        },
         "requestBody": {
           "required": true,
           "content": {
@@ -148,7 +155,7 @@
                 "properties": {
                   "extractedText": {
                     "type": "string",
-                    "description": "Extracted team info and notes"
+                    "description": "Extracted bios and notes"
                   }
                 },
                 "required": ["extractedText"]
@@ -158,7 +165,7 @@
         },
         "responses": {
           "200": {
-            "description": "Team section generated successfully",
+            "description": "Team section",
             "content": {
               "application/json": {
                 "schema": {
