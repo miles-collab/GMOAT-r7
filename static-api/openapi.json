@@ -15,6 +15,7 @@
       "post": {
         "operationId": "writeCompanyOverview",
         "summary": "Generate a detailed Company Overview",
+        "x-openai-isMock": true,
         "requestBody": {
           "required": true,
           "content": {
@@ -55,6 +56,7 @@
       "post": {
         "operationId": "writePathToProfitability",
         "summary": "Generate a detailed Path to Profitability",
+        "x-openai-isMock": true,
         "requestBody": {
           "required": true,
           "content": {
@@ -95,6 +97,7 @@
       "post": {
         "operationId": "writeGrowthPostProfitability",
         "summary": "Generate a Growth Post-Profitability section",
+        "x-openai-isMock": true,
         "requestBody": {
           "required": true,
           "content": {
@@ -135,6 +138,7 @@
       "post": {
         "operationId": "writeTeamSection",
         "summary": "Generate a detailed Team Section",
+        "x-openai-isMock": true,
         "requestBody": {
           "required": true,
           "content": {
